@@ -36,12 +36,11 @@ class ListingController extends Controller
             'pet_age' => 'required',
             'tags'=> 'required',
             'description' => 'required',
-            'pet_status' => 'required',
-            'pet_image' => 'image|mimes:jpg,jpeg,png',
+            'pet_status' => 'required'
             ]); 
 
-        if($request->hasFile('pet_image')) {
-            $formFields['pet_image'] = $request->file('pet_image')->store('pets', 'public');
+        if($request->hasFile('pet_picture')) {
+            $formFields['pet_picture'] = $request->file('pet_picture')->store('pets', 'public');
         }
 
         Listing::create($formFields);
